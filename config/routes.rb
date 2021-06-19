@@ -12,6 +12,7 @@ Rails.application.routes.draw do
           get 'show'
         end
       end
+      resources :articles
     end
   end
   get '/*a', to: 'application#not_found'

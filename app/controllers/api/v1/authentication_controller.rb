@@ -3,7 +3,6 @@
 module Api
   module V1
     class AuthenticationController < ApplicationController
-
       # POST /api/v1/sign_in
       def login
         @user = User.find_by_email(params[:email])
