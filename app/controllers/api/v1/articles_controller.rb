@@ -7,7 +7,8 @@ module Api
       before_action :set_article, only: %i[update destroy]
 
       def index
-        @articles = Article.all.order('created_at DESC')
+        @articles = Article.all
+        @articles = @articles.sort_by_date if params[:sorting] == 'sort_by_date'
         render_json @articles
       end
 
