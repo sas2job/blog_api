@@ -9,6 +9,14 @@ module Api
       def index
         @articles = Article.all
         @articles = @articles.sort_by_date if params[:sorting] == 'sort_by_date'
+        case params[:sorting]
+        when 'sort_by_author'
+          @articles = Article.all.order(created_at: :desc).eager_load(:user).where('email = ?',
+                                                                                   params[:email])
+        when 'sort_by_category'
+          @articles = Article.all.order(created_at: :desc).eager_load(:user).where('category = ?',
+                                                                                   params[:category])
+        end
         render_json @articles
       end
 

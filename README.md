@@ -50,5 +50,12 @@
   "email": "user@example.com"
 }
 
+### Получение статей
 
+http://localhost:3000/api/v1/articles - возвращает статьи с сортировкой по умолчанию (от старых к новым)
 
+http://localhost:3000/api/v1/articles?sorting=sort_by_date - возвращает статьи отсортированные по дате (от новых к старым)
+
+http://localhost:3000/api/v1/articles?sorting=sort_by_author&email=username@email.com - возвращает статьи определенного автора с сортировкой по дате
+
+http://localhost:3000/api/v1/articles?sorting=sort_by_category&category=search_gategory - возвращает статьи определенноой категории с сортировкой по дате
